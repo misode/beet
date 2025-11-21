@@ -361,6 +361,128 @@ class TestEnvironment(JsonFile):
     extension: ClassVar[str] = ".json"
 
 
+class Dimension(JsonFile):
+    """Class representing a dimension."""
+
+    scope: ClassVar[NamespaceFileScope] = ("dimension",)
+    extension: ClassVar[str] = ".json"
+
+
+class DimensionType(JsonFile):
+    """Class representing a dimension type."""
+
+    scope: ClassVar[NamespaceFileScope] = ("dimension_type",)
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenBiome(JsonFile):
+    """Class representing a biome."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "biome")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenConfiguredCarver(JsonFile):
+    """Class representing a worldgen carver."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "configured_carver")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenConfiguredFeature(JsonFile):
+    """Class representing a worldgen feature."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "configured_feature")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenDensityFunction(JsonFile):
+    """Class representing a density function."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "density_function")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenNoise(JsonFile):
+    """Class representing a worldgen noise."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "noise")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenNoiseSettings(JsonFile):
+    """Class representing worldgen noise settings."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "noise_settings")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenPlacedFeature(JsonFile):
+    """Class representing a placed feature."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "placed_feature")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenProcessorList(JsonFile):
+    """Class representing a worldgen processor list."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "processor_list")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenStructure(JsonFile):
+    """Class representing a worldgen structure feature."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "structure")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenStructureSet(JsonFile):
+    """Class representing a worldgen structure set."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "structure_set")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenConfiguredSurfaceBuilder(JsonFile):
+    """Class representing a worldgen surface builder."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "configured_surface_builder")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenTemplatePool(JsonFile):
+    """Class representing a worldgen template pool."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "template_pool")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenWorldPreset(JsonFile):
+    """Class representing a worldgen world preset."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "world_preset")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenFlatLevelGeneratorPreset(JsonFile):
+    """Class representing a worldgen flat level generator preset."""
+
+    scope: ClassVar[NamespaceFileScope] = ("worldgen", "flat_level_generator_preset")
+    extension: ClassVar[str] = ".json"
+
+
+class WorldgenMultiNoiseBiomeSourceParameterList(JsonFile):
+    """Class representing a worldgen multi noise biome source parameter list."""
+
+    scope: ClassVar[NamespaceFileScope] = (
+        "worldgen",
+        "multi_noise_biome_source_parameter_list",
+    )
+    extension: ClassVar[str] = ".json"
+
+
 class TagFile(JsonFile):
     """Base class for tag files."""
 
@@ -586,6 +708,52 @@ class DialogTag(TagFile):
     )
 
 
+class WorldgenBiomeTag(TagFile):
+    """Class representing a biome tag."""
+
+    scope: ClassVar[NamespaceFileScope] = ("tags", "worldgen", "biome")
+
+
+class WorldgenStructureTag(TagFile):
+    """Class representing a worldgen structure feature tag."""
+
+    scope: ClassVar[NamespaceFileScope] = ("tags", "worldgen", "structure")
+
+
+class WorldgenStructureSetTag(TagFile):
+    """Class representing a worldgen structure set tag."""
+
+    scope: ClassVar[NamespaceFileScope] = ("tags", "worldgen", "structure_set")
+
+
+class WorldgenConfiguredCarverTag(TagFile):
+    """Class representing a worldgen carver tag."""
+
+    scope: ClassVar[NamespaceFileScope] = ("tags", "worldgen", "configured_carver")
+
+
+class WorldgenPlacedFeatureTag(TagFile):
+    """Class representing a worldgen placed feature tag."""
+
+    scope: ClassVar[NamespaceFileScope] = ("tags", "worldgen", "placed_feature")
+
+
+class WorldgenFlatLevelGeneratorPresetTag(TagFile):
+    """Class representing a worldgen flat level generator preset tag."""
+
+    scope: ClassVar[NamespaceFileScope] = (
+        "tags",
+        "worldgen",
+        "flat_level_generator_preset",
+    )
+
+
+class WorldgenWorldPresetTag(TagFile):
+    """Class representing a worldgen world preset tag."""
+
+    scope: ClassVar[NamespaceFileScope] = ("tags", "worldgen", "world_preset")
+
+
 class DataPackNamespace(Namespace):
     """Class representing a data pack namespace."""
 
@@ -639,6 +807,30 @@ class DataPackNamespace(Namespace):
     dialogs_tags:                       NamespacePin[DialogTag]                 = NamespacePin(DialogTag)
     test_instances:                     NamespacePin[TestInstance]              = NamespacePin(TestInstance)
     test_environments:                  NamespacePin[TestEnvironment]           = NamespacePin(TestEnvironment)
+    dimensions:                         NamespacePin[Dimension]                 = NamespacePin(Dimension)
+    dimension_types:                    NamespacePin[DimensionType]             = NamespacePin(DimensionType)
+    biomes:                             NamespacePin[WorldgenBiome]             = NamespacePin(WorldgenBiome)
+    configured_carvers:                 NamespacePin[WorldgenConfiguredCarver]  = NamespacePin(WorldgenConfiguredCarver)
+    configured_features:                NamespacePin[WorldgenConfiguredFeature] = NamespacePin(WorldgenConfiguredFeature)
+    density_functions:                  NamespacePin[WorldgenDensityFunction]   = NamespacePin(WorldgenDensityFunction)
+    noises:                             NamespacePin[WorldgenNoise]             = NamespacePin(WorldgenNoise)
+    noise_settings:                     NamespacePin[WorldgenNoiseSettings]     = NamespacePin(WorldgenNoiseSettings)
+    placed_features:                    NamespacePin[WorldgenPlacedFeature]     = NamespacePin(WorldgenPlacedFeature)
+    processor_lists:                    NamespacePin[WorldgenProcessorList]     = NamespacePin(WorldgenProcessorList)
+    worldgen_structures:                NamespacePin[WorldgenStructure]         = NamespacePin(WorldgenStructure)
+    structure_sets:                     NamespacePin[WorldgenStructureSet]      = NamespacePin(WorldgenStructureSet)
+    configured_surface_builders:        NamespacePin[WorldgenConfiguredSurfaceBuilder] = NamespacePin(WorldgenConfiguredSurfaceBuilder)
+    template_pools:                     NamespacePin[WorldgenTemplatePool]      = NamespacePin(WorldgenTemplatePool)
+    world_presets:                      NamespacePin[WorldgenWorldPreset]       = NamespacePin(WorldgenWorldPreset)
+    flat_level_generator_presets:       NamespacePin[WorldgenFlatLevelGeneratorPreset] = NamespacePin(WorldgenFlatLevelGeneratorPreset)
+    multi_noise_biome_source_parameter_lists: NamespacePin[WorldgenMultiNoiseBiomeSourceParameterList] = NamespacePin(WorldgenMultiNoiseBiomeSourceParameterList)
+    biome_tags:                         NamespacePin[WorldgenBiomeTag] = NamespacePin(WorldgenBiomeTag)
+    structure_set_tags:                 NamespacePin[WorldgenStructureSetTag] = NamespacePin(WorldgenStructureSetTag)
+    worldgen_structure_tags:            NamespacePin[WorldgenStructureTag] = NamespacePin(WorldgenStructureTag)
+    configured_carver_tags:             NamespacePin[WorldgenConfiguredCarverTag] = NamespacePin(WorldgenConfiguredCarverTag)
+    placed_feature_tags:                NamespacePin[WorldgenPlacedFeatureTag] = NamespacePin(WorldgenPlacedFeatureTag)
+    flat_level_generator_preset_tags:   NamespacePin[WorldgenFlatLevelGeneratorPresetTag] = NamespacePin(WorldgenFlatLevelGeneratorPresetTag)
+    world_preset_tags:                  NamespacePin[WorldgenWorldPresetTag] = NamespacePin(WorldgenWorldPresetTag)
 
     # fmt: on
 
@@ -710,4 +902,28 @@ class DataPack(Pack[DataPackNamespace]):
     dialogs_tags:                       NamespaceProxyDescriptor[DialogTag]                 = NamespaceProxyDescriptor(DialogTag)
     test_instances:                     NamespaceProxyDescriptor[TestInstance]              = NamespaceProxyDescriptor(TestInstance)
     test_environments:                  NamespaceProxyDescriptor[TestEnvironment]           = NamespaceProxyDescriptor(TestEnvironment)
+    dimensions:                         NamespaceProxyDescriptor[Dimension]                 = NamespaceProxyDescriptor(Dimension)
+    dimension_types:                    NamespaceProxyDescriptor[DimensionType]             = NamespaceProxyDescriptor(DimensionType)
+    biomes:                             NamespaceProxyDescriptor[WorldgenBiome]             = NamespaceProxyDescriptor(WorldgenBiome)
+    configured_carvers:                 NamespaceProxyDescriptor[WorldgenConfiguredCarver]  = NamespaceProxyDescriptor(WorldgenConfiguredCarver)
+    configured_features:                NamespaceProxyDescriptor[WorldgenConfiguredFeature] = NamespaceProxyDescriptor(WorldgenConfiguredFeature)
+    density_functions:                  NamespaceProxyDescriptor[WorldgenDensityFunction]   = NamespaceProxyDescriptor(WorldgenDensityFunction)
+    noises:                             NamespaceProxyDescriptor[WorldgenNoise]             = NamespaceProxyDescriptor(WorldgenNoise)
+    noise_settings:                     NamespaceProxyDescriptor[WorldgenNoiseSettings]     = NamespaceProxyDescriptor(WorldgenNoiseSettings)
+    placed_features:                    NamespaceProxyDescriptor[WorldgenPlacedFeature]     = NamespaceProxyDescriptor(WorldgenPlacedFeature)
+    processor_lists:                    NamespaceProxyDescriptor[WorldgenProcessorList]     = NamespaceProxyDescriptor(WorldgenProcessorList)
+    worldgen_structures:                NamespaceProxyDescriptor[WorldgenStructure]         = NamespaceProxyDescriptor(WorldgenStructure)
+    structure_sets:                     NamespaceProxyDescriptor[WorldgenStructureSet]      = NamespaceProxyDescriptor(WorldgenStructureSet)
+    configured_surface_builders:        NamespaceProxyDescriptor[WorldgenConfiguredSurfaceBuilder] = NamespaceProxyDescriptor(WorldgenConfiguredSurfaceBuilder)
+    template_pools:                     NamespaceProxyDescriptor[WorldgenTemplatePool]      = NamespaceProxyDescriptor(WorldgenTemplatePool)
+    world_presets:                      NamespaceProxyDescriptor[WorldgenWorldPreset]       = NamespaceProxyDescriptor(WorldgenWorldPreset)
+    flat_level_generator_presets:       NamespaceProxyDescriptor[WorldgenFlatLevelGeneratorPreset] = NamespaceProxyDescriptor(WorldgenFlatLevelGeneratorPreset)
+    multi_noise_biome_source_parameter_lists: NamespaceProxyDescriptor[WorldgenMultiNoiseBiomeSourceParameterList] = NamespaceProxyDescriptor(WorldgenMultiNoiseBiomeSourceParameterList)
+    biome_tags:                         NamespaceProxyDescriptor[WorldgenBiomeTag]          = NamespaceProxyDescriptor(WorldgenBiomeTag)
+    structure_set_tags:                 NamespaceProxyDescriptor[WorldgenStructureSetTag]   = NamespaceProxyDescriptor(WorldgenStructureSetTag)
+    worldgen_structure_tags:            NamespaceProxyDescriptor[WorldgenStructureTag]      = NamespaceProxyDescriptor(WorldgenStructureTag)
+    configured_carver_tags:             NamespaceProxyDescriptor[WorldgenConfiguredCarverTag] = NamespaceProxyDescriptor(WorldgenConfiguredCarverTag)
+    placed_feature_tags:                NamespaceProxyDescriptor[WorldgenPlacedFeatureTag]  = NamespaceProxyDescriptor(WorldgenPlacedFeatureTag)
+    flat_level_generator_preset_tags:   NamespaceProxyDescriptor[WorldgenFlatLevelGeneratorPresetTag] = NamespaceProxyDescriptor(WorldgenFlatLevelGeneratorPresetTag)
+    world_preset_tags:                  NamespaceProxyDescriptor[WorldgenWorldPresetTag]    = NamespaceProxyDescriptor(WorldgenWorldPresetTag)
     # fmt: on

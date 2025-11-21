@@ -33,7 +33,6 @@ from beet import (
     UnveilMapping,
     configurable,
 )
-from beet.contrib.worldgen import worldgen
 from beet.core.utils import FileSystemPath, log_time
 
 MANIFEST_URL: str = "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"
@@ -58,7 +57,6 @@ class ClientJar:
         self.path = Path(path)
         self.assets = ResourcePack()
         self.data = DataPack()
-        worldgen(self.data)
 
     def mount(
         self,

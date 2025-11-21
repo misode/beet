@@ -12,7 +12,6 @@ from beet import (
     Pack,
     ResourcePack,
 )
-from beet.contrib.worldgen import worldgen
 from beet.library.test_utils import ignore_name
 
 try:
@@ -35,7 +34,6 @@ else:
 
         def load(self, path: Path) -> DataPack:
             data_pack = DataPack()
-            worldgen(data_pack)
             data_pack.load(path)
             return ignore_name(data_pack)
 
